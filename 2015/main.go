@@ -28,6 +28,7 @@ func main() {
 	fncMap["day02"] = day02.Run
 	fncMap["day02a"] = day02.RunA
 	fncMap["day03"] = day03.Run
+	fncMap["day03a"] = day03.RunA
 
 	f, ok := fncMap[program]
 	if !ok {
