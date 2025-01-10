@@ -7,6 +7,7 @@ import (
 	"suniljose.in/aoc/2015/day01"
 	"suniljose.in/aoc/2015/day02"
 	"suniljose.in/aoc/2015/day03"
+	"suniljose.in/aoc/2015/day04"
 )
 
 type runner func(string) int
@@ -29,6 +30,8 @@ func main() {
 	fncMap["day02a"] = day02.RunA
 	fncMap["day03"] = day03.Run
 	fncMap["day03a"] = day03.RunA
+	fncMap["day04"] = day04.Run
+	fncMap["day04a"] = day04.RunA
 
 	f, ok := fncMap[program]
 	if !ok {
