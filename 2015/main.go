@@ -5,7 +5,10 @@ import (
 	"os"
 
 	"suniljose.in/aoc/2015/day01"
+	"suniljose.in/aoc/2015/day02"
 )
+
+type runner func(string) int
 
 func main() {
 	program := os.Args[1]
@@ -18,11 +21,17 @@ func main() {
 
 	input := string(data)
 
-	switch program {
-	case "day01":
-		fmt.Println(day01.Run(input))
-	case "day01a":
-		fmt.Println(day01.RunA(input))
+	fncMap := make(map[string]func(string) int)
+	fncMap["day01"] = day01.Run
+	fncMap["day01a"] = day01.RunA
+	fncMap["day02"] = day02.Run
+	fncMap["day02a"] = day02.RunA
+
+	f, ok := fncMap[program]
+	if !ok {
+		fmt.Printf("invalid program name: %s", program)
+		panic(program)
 	}
 
+	fmt.Println(f(input))
 }
